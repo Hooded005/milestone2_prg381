@@ -34,7 +34,7 @@ public class BorrowersManagement extends javax.swing.JFrame {
         btn_view4 = new javax.swing.JButton();
         btn_add4 = new javax.swing.JButton();
         btn_delete4 = new javax.swing.JButton();
-        btn_search4 = new javax.swing.JButton();
+        btn_update = new javax.swing.JButton();
         txt_bid = new javax.swing.JTextField();
         lbl_id = new javax.swing.JLabel();
         lbl_name = new javax.swing.JLabel();
@@ -108,11 +108,11 @@ public class BorrowersManagement extends javax.swing.JFrame {
             }
         });
 
-        btn_search4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btn_search4.setText("Search");
-        btn_search4.addActionListener(new java.awt.event.ActionListener() {
+        btn_update.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btn_update.setText("Update");
+        btn_update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_search4ActionPerformed(evt);
+                btn_updateActionPerformed(evt);
             }
         });
 
@@ -156,7 +156,7 @@ public class BorrowersManagement extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_name))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_delete4)
                     .addComponent(lbl_surname)
@@ -165,7 +165,7 @@ public class BorrowersManagement extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_return)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(btn_search4)
+                        .addComponent(btn_update)
                         .addGap(41, 41, 41)
                         .addComponent(btn_dashboard4))
                     .addComponent(cb_return, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -192,7 +192,7 @@ public class BorrowersManagement extends javax.swing.JFrame {
                     .addComponent(btn_view4)
                     .addComponent(btn_add4)
                     .addComponent(btn_delete4)
-                    .addComponent(btn_search4))
+                    .addComponent(btn_update))
                 .addContainerGap())
         );
 
@@ -247,9 +247,9 @@ public class BorrowersManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_delete4ActionPerformed
 
-    private void btn_search4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_search4ActionPerformed
+    private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_search4ActionPerformed
+    }//GEN-LAST:event_btn_updateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -306,7 +306,7 @@ public class BorrowersManagement extends javax.swing.JFrame {
     private javax.swing.JButton btn_search1;
     private javax.swing.JButton btn_search2;
     private javax.swing.JButton btn_search3;
-    private javax.swing.JButton btn_search4;
+    private javax.swing.JButton btn_update;
     private javax.swing.JButton btn_view;
     private javax.swing.JButton btn_view1;
     private javax.swing.JButton btn_view2;

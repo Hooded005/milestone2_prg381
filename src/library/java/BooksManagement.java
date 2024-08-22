@@ -34,7 +34,7 @@ public class BooksManagement extends javax.swing.JFrame {
         btn_view = new javax.swing.JButton();
         btn_add = new javax.swing.JButton();
         btn_delete = new javax.swing.JButton();
-        btn_search = new javax.swing.JButton();
+        btn_update = new javax.swing.JButton();
         txt_id = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         lbl_title = new javax.swing.JLabel();
@@ -110,11 +110,11 @@ public class BooksManagement extends javax.swing.JFrame {
             }
         });
 
-        btn_search.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btn_search.setText("Search");
-        btn_search.addActionListener(new java.awt.event.ActionListener() {
+        btn_update.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btn_update.setText("Update");
+        btn_update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_searchActionPerformed(evt);
+                btn_updateActionPerformed(evt);
             }
         });
 
@@ -157,7 +157,7 @@ public class BooksManagement extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_title, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_title))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_delete)
                     .addComponent(lbl_author)
@@ -167,7 +167,7 @@ public class BooksManagement extends javax.swing.JFrame {
                     .addComponent(txt_year, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_year)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btn_search)
+                        .addComponent(btn_update)
                         .addGap(41, 41, 41)
                         .addComponent(btn_dashboard)))
                 .addContainerGap())
@@ -193,7 +193,7 @@ public class BooksManagement extends javax.swing.JFrame {
                     .addComponent(btn_view)
                     .addComponent(btn_add)
                     .addComponent(btn_delete)
-                    .addComponent(btn_search))
+                    .addComponent(btn_update))
                 .addContainerGap())
         );
 
@@ -209,7 +209,7 @@ public class BooksManagement extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -248,9 +248,9 @@ public class BooksManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_deleteActionPerformed
 
-    private void btn_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_searchActionPerformed
+    private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_searchActionPerformed
+    }//GEN-LAST:event_btn_updateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,7 +291,7 @@ public class BooksManagement extends javax.swing.JFrame {
     private javax.swing.JButton btn_add;
     private javax.swing.JButton btn_dashboard;
     private javax.swing.JButton btn_delete;
-    private javax.swing.JButton btn_search;
+    private javax.swing.JButton btn_update;
     private javax.swing.JButton btn_view;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
