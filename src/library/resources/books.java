@@ -3,9 +3,9 @@ package library.resources;
 public class books 
 {    
     String id, title, author;
-    int year;
+    String year;
     
-    public books(String id, String title, String author, int year) 
+    public books(String id, String title, String author, String year) 
     {
         this.id = id;
         this.title = title;
@@ -42,15 +42,15 @@ public class books
         this.author = author;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(String year) {
         this.year = year;
     }
     
-    public String add(String id, String t, String a, int y)
+    public String add(String id, String t, String a, String y)
     {        
         String query = "";
          try
@@ -86,7 +86,7 @@ public class books
         return query;
     }
     
-    public String update(String id, String t, String a, int y)
+    public String update(String id, String t, String a, String y)
     {        
         String query = "";
          try
@@ -94,8 +94,8 @@ public class books
             query = "UPDATE Books"
                     + "\nSET Title = '" + t  + "', "
                     + "Author = '" + a + "', "
-                    + "Year = " + y
-                    + "WHERE BookID = '" + id + "'";
+                    + "Year_Published = '" + y + "'"
+                    + "\nWHERE BookID = '" + id + "'";
         }
         catch (Exception ex)
         {
@@ -103,5 +103,11 @@ public class books
         }
          
          return query;
+    }
+    
+    public String display()
+    {
+        String query = "SELECT * FROM Books";
+        return query;
     }
 }

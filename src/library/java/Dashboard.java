@@ -1,7 +1,5 @@
 package library.java;
 
-import library.database.DBConnection;
-
 public class Dashboard extends javax.swing.JFrame {
 
       public Dashboard() {
@@ -102,38 +100,22 @@ public class Dashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_booksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_booksActionPerformed
-        BooksManagement books = new BooksManagement();
-        
-        db.createBooksTable();
-                
+        BooksManagement books = new BooksManagement();     
         books.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_booksActionPerformed
 
     private void btn_borrowersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borrowersActionPerformed
         BorrowersManagement borrowers = new BorrowersManagement();
-        
-        db.createBorrowerTable();
-        
         borrowers.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_borrowersActionPerformed
-
-   public static DBConnection db = new DBConnection();
     
     public static void main(String args[]) {
  
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Dashboard().setVisible(true);
-                try
-                {
-                    db.connect();
-                }
-                catch (ClassNotFoundException ex)
-                {
-                    ex.printStackTrace();
-                }
             }
         });
     }
