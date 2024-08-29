@@ -7,10 +7,13 @@ import java.util.ArrayList;
 import library.resources.books;
 import java.sql.ResultSet;
 import java.util.Collections;
+import library.resources.borrowers;
 
 public class DBConnection 
 {    
     private static final books book = new books();
+    
+    private static final borrowers borrower = new borrowers();
     
     private static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
     
@@ -65,7 +68,7 @@ public class DBConnection
                     + "(BorrowerID varchar(20), "
                     + "Name varchar(20), "
                     + "Surname varchar(20), "
-                    + "Returned boolean)";
+                    + "Returned varchar(20))";
             
             this.con.createStatement().execute(query);
         }
@@ -74,7 +77,18 @@ public class DBConnection
             ex.printStackTrace();
         }
     }
-    
+    public void deleteBorrowTabel(){
+        try
+        {
+            String query = "DROP TABLE Borrowers ";
+            
+            this.con.createStatement().execute(query);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
     public void addBook(String id, String t, String a, String y)
     {
         String query = book.add(id, t, a, y);
@@ -138,6 +152,72 @@ public class DBConnection
         {
             ex.printStackTrace();
         }
+        return dataList;
+    }
+    public void addBorrower(String id, String n, String sn, String r)
+    {
+        String query = borrower.add(id, n, sn, r);
+        try 
+        {
+            this.con.createStatement().execute(query);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void deleteBorrower(String id)
+    {
+        String query = borrower.delete(id);
+        try 
+        {
+            this.con.createStatement().execute(query);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void updateBorrower(String id, String n, String sn, String r)
+    {
+        String query = borrower.update(id, n, sn, r);
+        try 
+        {
+            this.con.createStatement().execute(query);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+    
+    public ArrayList<String[]> displayBorrowers()
+    {
+        ArrayList<String[]> dataList = new ArrayList<>();
+        String query = borrower.display();
+    
+        try 
+        {
+            ResultSet table = this.con.createStatement().executeQuery(query);
+        
+            while (table.next())
+            {
+                String id = table.getString("BorrowerID");
+                String n = table.getString("Name");
+                String sn = table.getString("Surname");           
+                String r = table.getString("Returned");
+            
+                String[] row = {id, n, sn, r};
+                dataList.add(row);
+            }
+        } 
+        catch (Exception ex) 
+        {
+            ex.printStackTrace();
+        }
+    
         return dataList;
     }
 }
