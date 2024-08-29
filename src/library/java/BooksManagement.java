@@ -73,14 +73,6 @@ public class BooksManagement extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTable1FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTable1FocusLost(evt);
-            }
-        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -261,6 +253,8 @@ public class BooksManagement extends javax.swing.JFrame {
     private void btn_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_viewActionPerformed
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         
+        model.setRowCount(0);
+        
         for (String[] row: db.displayBooks())
         {
             model.addRow(row);
@@ -298,6 +292,16 @@ public class BooksManagement extends javax.swing.JFrame {
         db.updateBook(id, title, author, year);
         
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        int rIndex = -1;
+        
+        for (int i=0; i < model.getRowCount(); i++)
+        {
+            if (model.getValueAt(i, 0).toString().equalsIgnoreCase(id))
+            {
+                rIndex = i;
+            }
+        }
+        model.removeRow(rIndex);
         model.addRow(new Object[] {id, title, author, year});
     }//GEN-LAST:event_btn_updateActionPerformed
 
@@ -319,22 +323,6 @@ public class BooksManagement extends javax.swing.JFrame {
         txt_author.setText("");
         txt_year.setText("");        
     }//GEN-LAST:event_btn_clearActionPerformed
-
-    private void jTable1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable1FocusGained
-        int rIndex = jTable1.getSelectedRow();
-        
-        txt_id.setText(jTable1.getValueAt(rIndex, 0).toString());
-        txt_title.setText(jTable1.getValueAt(rIndex, 0).toString());
-        txt_author.setText(jTable1.getValueAt(rIndex, 0).toString());
-        txt_year.setText(jTable1.getValueAt(rIndex, 0).toString());  
-    }//GEN-LAST:event_jTable1FocusGained
-
-    private void jTable1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable1FocusLost
-        txt_id.setText("");
-        txt_title.setText("");
-        txt_author.setText("");
-        txt_year.setText("");    
-    }//GEN-LAST:event_jTable1FocusLost
 
     public static DBConnection db = new DBConnection();    
     

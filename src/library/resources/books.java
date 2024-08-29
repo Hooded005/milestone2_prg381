@@ -107,7 +107,8 @@ public class books
     
     public String display()
     {
-        String query = "SELECT * FROM Books";
+        String query = "SELECT * FROM Books"
+                + "\nORDER BY BookID";
         return query;
     }
 }
