@@ -2,9 +2,16 @@ package library.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import library.resources.books;
 
 public class DBConnection 
 {
+    
+    private static books book = new books();
+    
     private static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
     
     private static final String JDBC_URL = "jdbc:derby:studentDB;create=true";
@@ -61,6 +68,31 @@ public class DBConnection
             this.con.createStatement().execute(query);
         }
         catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void addBook(String id, String t, String a, int y)
+    {
+        String query = book.add(id, t, a, y);
+        try 
+        {
+            this.con.createStatement().execute(query);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+    public void deleteBook(String id)
+    {
+        String query = book.delete(id);
+        try 
+        {
+            this.con.createStatement().execute(query);
+        } 
+        catch (SQLException ex) 
         {
             ex.printStackTrace();
         }
